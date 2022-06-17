@@ -30,9 +30,14 @@ public class RozetkaTests {
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("modal__close")));
         WebElement closeButton = driver.findElement(By.className("modal__close"));
-        WebElement logoImg = driver.findElement(By.xpath("//img[@alt='Rozetka Logo']"));
+        closeButton.click();
+        driver.navigate().to("https://rozetka.com.ua/");
         WebElement cartImg = driver.findElement(By.xpath("//rz-cart[@class='header-actions__component']/button"));
-        Assert.assertEquals(cartImg.getText(), "1");
+        cartImg.click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//rz-cart-product//input")));
+WebElement counterField= driver.findElement(By.xpath("//rz-cart-product//input"));
+        System.out.println("text in field is:"+ counterField.getText());
+       // Assert.assertEquals(counterField.getText(), "1");
 
         driver.quit();
     }
