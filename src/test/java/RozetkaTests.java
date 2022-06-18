@@ -4,7 +4,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
@@ -12,7 +11,7 @@ import java.time.Duration;
 public class RozetkaTests {
 
     @Test
-    public void verifyProductInCart() {
+    public void verifyProductInCartTest() {
 
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
@@ -41,6 +40,4 @@ WebElement counterField= driver.findElement(By.xpath("//rz-cart-product//input")
 
         driver.quit();
     }
-
-
 }
