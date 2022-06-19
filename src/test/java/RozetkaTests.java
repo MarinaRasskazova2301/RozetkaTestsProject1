@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
@@ -35,10 +36,11 @@ public class RozetkaTests {
         WebElement cartImg = driver.findElement(By.xpath("//rz-cart[@class='header-actions__component']/button"));
         cartImg.click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//rz-cart-product//input")));
-WebElement counterField= driver.findElement(By.xpath("//rz-cart-product//input"));
-        System.out.println("text in field is:"+ counterField.getText());
-       // Assert.assertEquals(counterField.getText(), "1");
-
+        // WebElement counterField = driver.findElement(By.xpath("//rz-cart-product//input"));
+        // System.out.println("text in field is:" + counterField.getText());
+        // Assert.assertEquals(counterField.getText(), "1");
+        WebElement productName = driver.findElement(By.xpath("//a[@class='cart-product__title']"));
+        Assert.assertEquals(productName.getText(), "Apple MagSafe 2 85 Вт для MacBook Pro с 15\" дисплеем Retina (MD506Z/A)" );
         driver.quit();
     }
 }
